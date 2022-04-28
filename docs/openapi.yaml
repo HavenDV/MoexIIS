@@ -8,30 +8,28 @@ info:
 servers:
 - url: https://iss.moex.com/
 - url: https://passport.moex.com/
+
+security:
+  - MicexPassportCert: []
+        
 paths:
   /authenticate:
     get:
       operationId: authenticate
-      parameters:
-      - name: login
-        in: query
-        required: true
-        schema:
-          type: string
-          nullable: true
-      - name: password
-        in: query
-        required: true
-        schema:
-          type: string
-          nullable: true
+      security:
+        - BasicAuth: []
       responses:
-        default:
-          description: get0 default response
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+          
+        '200':
+          description: Access token
           content:
-            application/json:
+            text/plain:
               schema:
-                $ref: '#/components/schemas/Response0'
+                type: string
+                example: access token
+                
   /iss/securities.json:
     get:
       description: Список бумаг торгуемых на московской бирже.
@@ -8595,7 +8593,7 @@ paths:
                 $ref: '#/components/schemas/Response137'
   /iss/analyticalproducts/futoi/securities.json:
     get:
-      operationId: get138
+      operationId: getOpenPositionsOnAllFutures
       parameters:
       - name: futoi.latest
         in: query
@@ -8625,13 +8623,25 @@ paths:
                 $ref: '#/components/schemas/Response138'
   /iss/analyticalproducts/futoi/securities/{security}.json:
     get:
-      operationId: get139
+      operationId: getOpenPositionsOnFutures
       parameters:
       - name: security
         in: path
         required: true
         schema:
           type: string
+      - name: iss.json
+        in: query
+        required: false
+        schema:
+          type: string
+          nullable: true
+      - name: iss.meta
+        in: query
+        required: false
+        schema:
+          type: string
+          nullable: true
       - name: futoi.latest
         in: query
         description: Последний срез за день ('1'-включить)
@@ -8664,7 +8674,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Response139'
+                $ref: '#/components/schemas/GetOpenPositionsOnFuturesResponseData'
 components:
   schemas:
     Response0:
@@ -8728,6 +8738,80 @@ components:
           type: string
         marketpriceBoardid:
           type: string
+          
+    GetOpenPositionsOnFuturesResponseData:
+      type: array
+      items:
+        $ref: '#/components/schemas/GetOpenPositionsOnFuturesResponseDataValue'
+    GetOpenPositionsOnFuturesResponseDataValue:
+      type: object
+      properties:
+        charsetInfo:
+          $ref: '#/components/schemas/CharsetInfoData'
+        futoi:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenPositions'
+        futoi.dates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dates'
+    Dates:
+      type: object
+      properties:
+        from:
+          type: string
+          example: 2020-05-08
+        till:
+          type: string
+          example: 2022-04-28
+    OpenPositions:
+      type: object
+      properties:
+        sess_id:
+          type: integer
+          format: int32
+          example: 6535
+        seqnum:
+          type: integer
+          format: int32
+          example: 81
+        tradedate:
+          type: string
+          example: 2022-04-28
+        tradetime:
+          type: string
+          example: 16:45:00
+        ticker:
+          type: string
+          example: Si
+        clgroup:
+          type: string
+          example: YUR
+        pos:
+          type: integer
+          format: int32
+          example: -533320
+        pos_long:
+          type: integer
+          format: int32
+          example: 492503
+        pos_short:
+          type: integer
+          format: int32
+          example: -1025823
+        pos_long_num:
+          type: integer
+          format: int32
+          example: 183
+        pos_short_num:
+          type: integer
+          format: int32
+          example: 73
+        systime:
+          type: string
+          example: 2022-04-28 16:45:04
+
     Response1:
       type: object
       properties:
@@ -9687,9 +9771,21 @@ components:
           $ref: '#/components/schemas/CharsetInfo'
         data:
           $ref: '#/components/schemas/ResponseData'
+          
+  responses:
+    UnauthorizedError:
+      description: Authentication information is missing or invalid
+      headers:
+        WWW_Authenticate:
+          schema:
+            type: string
   
   securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      
     MicexPassportCert:
       type: apiKey
-      in: query
+      in: cookie
       name: MicexPassportCert

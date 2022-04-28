@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32414.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoexIIS", "src\libs\MoexIIS\MoexIIS.csproj", "{8E215A5F-81DB-4681-9390-7633F426A01C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{F3CB6759-5D88-4261-B57E-FD42E1C99895}"
+	ProjectSection(SolutionItems) = preProject
+		src\libs\Directory.Build.props = src\libs\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{681E01D6-EE66-477C-9CA5-AEFD3EA3B6AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoexIIS.IntegrationTests", "src\tests\MoexIIS.IntegrationTests\MoexIIS.IntegrationTests.csproj", "{E20E61A7-7514-4105-A739-5460A452E17A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{B2598A8E-7B81-48C3-A34A-5C07854E0A68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoexIIS.Apps.Console", "src\apps\MoexIIS.Apps.Console\MoexIIS.Apps.Console.csproj", "{06523DDB-080B-43AE-9A7A-0446503BD155}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{306CDF7A-C36C-42AB-ADB9-8B454937A8DA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		src\Directory.Build.props = src\Directory.Build.props
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		LICENSE = LICENSE
+		docs\openapi.yaml = docs\openapi.yaml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E215A5F-81DB-4681-9390-7633F426A01C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E215A5F-81DB-4681-9390-7633F426A01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E215A5F-81DB-4681-9390-7633F426A01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E215A5F-81DB-4681-9390-7633F426A01C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20E61A7-7514-4105-A739-5460A452E17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20E61A7-7514-4105-A739-5460A452E17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20E61A7-7514-4105-A739-5460A452E17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20E61A7-7514-4105-A739-5460A452E17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06523DDB-080B-43AE-9A7A-0446503BD155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06523DDB-080B-43AE-9A7A-0446503BD155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06523DDB-080B-43AE-9A7A-0446503BD155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06523DDB-080B-43AE-9A7A-0446503BD155}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E215A5F-81DB-4681-9390-7633F426A01C} = {F3CB6759-5D88-4261-B57E-FD42E1C99895}
+		{E20E61A7-7514-4105-A739-5460A452E17A} = {681E01D6-EE66-477C-9CA5-AEFD3EA3B6AE}
+		{06523DDB-080B-43AE-9A7A-0446503BD155} = {B2598A8E-7B81-48C3-A34A-5C07854E0A68}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0081E450-E36A-4F43-842D-5DDCB49700A1}
+	EndGlobalSection
+EndGlobal
