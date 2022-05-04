@@ -12,3 +12,4 @@ jobs:
       conventional-commits-publish-conditions: false
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
+      personal-token: ${{ secrets.PERSONAL_TOKEN }}
