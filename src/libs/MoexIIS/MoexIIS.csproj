@@ -15,7 +15,7 @@
   
   <ItemGroup>
     <AdditionalFiles Include="$(SolutionDir)docs\openapi.nswag" />
-    <PackageReference Include="H.NSwag.Generator" Version="13.15.10.51">
+    <PackageReference Include="H.NSwag.Generator" Version="13.15.10.52">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
