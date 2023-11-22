@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <DefineConstants>$(DefineConstants);HAS_WPF</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\MoexIIS\MoexIIS.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\MoexIIS.Apps.Shared\MoexIIS.Apps.Shared.projitems" Label="Shared" />
+
+</Project>

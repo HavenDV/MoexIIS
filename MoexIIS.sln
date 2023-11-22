@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MoexIIS.Apps.Shared", "src\apps\MoexIIS.Apps.Shared\MoexIIS.Apps.Shared.shproj", "{E1243535-5EA6-4E8E-BCC4-5A5A8588515B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoexIIS.Apps.Wpf", "src\apps\MoexIIS.Apps.Wpf\MoexIIS.Apps.Wpf.csproj", "{FFBEF678-1D75-45A1-B23C-A37DC6F3BDF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{06523DDB-080B-43AE-9A7A-0446503BD155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06523DDB-080B-43AE-9A7A-0446503BD155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06523DDB-080B-43AE-9A7A-0446503BD155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBEF678-1D75-45A1-B23C-A37DC6F3BDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBEF678-1D75-45A1-B23C-A37DC6F3BDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBEF678-1D75-45A1-B23C-A37DC6F3BDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBEF678-1D75-45A1-B23C-A37DC6F3BDF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,8 +63,14 @@ Global
 		{8E215A5F-81DB-4681-9390-7633F426A01C} = {F3CB6759-5D88-4261-B57E-FD42E1C99895}
 		{E20E61A7-7514-4105-A739-5460A452E17A} = {681E01D6-EE66-477C-9CA5-AEFD3EA3B6AE}
 		{06523DDB-080B-43AE-9A7A-0446503BD155} = {B2598A8E-7B81-48C3-A34A-5C07854E0A68}
+		{E1243535-5EA6-4E8E-BCC4-5A5A8588515B} = {B2598A8E-7B81-48C3-A34A-5C07854E0A68}
+		{FFBEF678-1D75-45A1-B23C-A37DC6F3BDF6} = {B2598A8E-7B81-48C3-A34A-5C07854E0A68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0081E450-E36A-4F43-842D-5DDCB49700A1}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\apps\MoexIIS.Apps.Shared\MoexIIS.Apps.Shared.projitems*{e1243535-5ea6-4e8e-bcc4-5a5a8588515b}*SharedItemsImports = 13
+		src\apps\MoexIIS.Apps.Shared\MoexIIS.Apps.Shared.projitems*{ffbef678-1d75-45a1-b23c-a37dc6f3bdf6}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

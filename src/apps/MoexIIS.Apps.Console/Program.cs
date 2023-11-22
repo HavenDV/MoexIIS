@@ -3,15 +3,21 @@
 using var client = new HttpClient();
 var api = new MoexIISApi(client);
 
-Console.WriteLine($"Enter username:");
-var username = Console.ReadLine() ?? string.Empty;
+Console.WriteLine("Enter username:");
+var username =
+    Environment.GetEnvironmentVariable("MOEXIIS_USERNAME") ??
+    Console.ReadLine() ??
+    string.Empty;
 
-Console.WriteLine($"Enter password:");
-var password = Console.ReadLine() ?? string.Empty;
+Console.WriteLine("Enter password:");
+var password =
+    Environment.GetEnvironmentVariable("MOEXIIS_PASSWORD") ??
+    Console.ReadLine() ??
+    string.Empty;
 
 await api.AuthenticateAsync(username, password);
 
-Console.WriteLine($"Authenticated.");
+Console.WriteLine("Authenticated.");
 
 while (true)
 {
